@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.view.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Нова база">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Відкрити">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Зберегти все">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Нова папка ">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Вихід" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Персонал">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Персонал" />
+                  <MenuItem mnemonicParsing="false" text="Персонал архів" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Продукція" />
+            <Menu mnemonicParsing="false" text="Склад">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Склад№1" />
+                  <MenuItem mnemonicParsing="false" text="Склад №2" />
+                  <MenuItem mnemonicParsing="false" text="Склад №3" />
+                  <MenuItem mnemonicParsing="false" text="Склад №4" />
+                <MenuItem mnemonicParsing="false" text="Вільні місця" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Замовлення">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Створити нове" />
+                  <MenuItem mnemonicParsing="false" text="Архів замовлень" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Зміни">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Створити зміну" />
+                  <MenuItem mnemonicParsing="false" text="Архів змін" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Графіки">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Допомога">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Про програму" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
