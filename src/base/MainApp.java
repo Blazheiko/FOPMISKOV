@@ -225,14 +225,14 @@ public class MainApp extends Application {
         String strValue = "";
         int index = 1 ;
         boolean writeValue = false ;
-        Person personTemp = new Person();
+        Person personTemp = new Person(salaryBalanceCent, tariffCent);
         for ( int i=0 ; i<charsTemp.length; i++ ){
             if (writeValue & (charsTemp[i]!= '^')) strValue = strValue + charsTemp [i];
             else {
                 switch (charsTemp[i]) {
                     case '{': {
                         index = 1;
-                        personTemp = new Person();
+                        personTemp = new Person(salaryBalanceCent, tariffCent);
                         break;
                     }
                     case '}':
