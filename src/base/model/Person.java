@@ -20,17 +20,19 @@ public class Person {
     private final StringProperty city;
     private final StringProperty phone;
     private final StringProperty position;
-    private final DoubleProperty tariff;
-    private final DoubleProperty salaryBalance;
+    private final IntegerProperty tariff;
+    private final IntegerProperty tariffCent;
+    private final IntegerProperty salaryBalance;
+    private final IntegerProperty salaryBalanceCent;
     private final StringProperty note;
 
     private final ObjectProperty<LocalDate> birthday;
     private final ObjectProperty<LocalDate> dateOfRecruitment;
     private final ObjectProperty<LocalDate> dateOfDismissal ;
 
-    public Person(String inn, String firstName, String  lastName, String patron,
-                  String  street, String  city, String  phone, String  position,
-                  Double  tariff, Double  salaryBalance, String  note,
+    public Person(String inn, String firstName, String lastName, String patron,
+                  String street, String city, String phone, String position,
+                  Integer tariff, Integer salaryBalance, Integer tariffCent, Integer salaryBalanceCent, String note,
                   LocalDate birthday, LocalDate dateOfRecruitment, LocalDate dateOfDismissal) {
         this.inn = new SimpleStringProperty (inn);
         this.firstName = new SimpleStringProperty (firstName);
@@ -40,8 +42,10 @@ public class Person {
         this.city = new SimpleStringProperty (city);
         this.phone = new SimpleStringProperty (phone);
         this.position = new SimpleStringProperty (position);
-        this.tariff = new SimpleDoubleProperty(0.0);
-        this.salaryBalance = new SimpleDoubleProperty (0.0);
+        this.tariff= new SimpleIntegerProperty(tariff);
+        this.salaryBalance = new SimpleIntegerProperty (salaryBalance);
+        this.tariffCent = new SimpleIntegerProperty(tariffCent);
+        this.salaryBalanceCent =new SimpleIntegerProperty( salaryBalanceCent);
         this.note = new SimpleStringProperty (note);
         this.birthday = new SimpleObjectProperty<LocalDate>(birthday);
         this.dateOfRecruitment = new SimpleObjectProperty<LocalDate>(dateOfRecruitment);
@@ -49,8 +53,8 @@ public class Person {
     }
 
     public Person() {
-        this (null,null,null,null,null,null,null,null,0.0,
-                0.0,null,null,null,null);
+        this (null,null,null,null,null,null,null,null,0,
+                0, 0, 0, null,null,null,null);
     }
 
     public String getInn() {
@@ -153,11 +157,11 @@ public class Person {
         return tariff.get();
     }
 
-    public DoubleProperty tariffProperty() {
+    public IntegerProperty tariffProperty() {
         return tariff;
     }
 
-    public void setTariff(double tariff) {
+    public void setTariff(Integer tariff) {
         this.tariff.set(tariff);
     }
 
@@ -165,11 +169,11 @@ public class Person {
         return salaryBalance.get();
     }
 
-    public DoubleProperty salaryBalanceProperty() {
+    public IntegerProperty salaryBalanceProperty() {
         return salaryBalance;
     }
 
-    public void setSalaryBalance(double salaryBalance) {
+    public void setSalaryBalance(Integer salaryBalance) {
         this.salaryBalance.set(salaryBalance);
     }
 
@@ -219,6 +223,30 @@ public class Person {
 
     public void setDateOfDismissal(LocalDate dateOfDismissal) {
         this.dateOfDismissal.set(dateOfDismissal);
+    }
+
+    public int getTariffCent() {
+        return tariffCent.get();
+    }
+
+    public IntegerProperty tariffCentProperty() {
+        return tariffCent;
+    }
+
+    public void setTariffCent(int tariffCent) {
+        this.tariffCent.set(tariffCent);
+    }
+
+    public int getSalaryBalanceCent() {
+        return salaryBalanceCent.get();
+    }
+
+    public IntegerProperty salaryBalanceCentProperty() {
+        return salaryBalanceCent;
+    }
+
+    public void setSalaryBalanceCent(int salaryBalanceCent) {
+        this.salaryBalanceCent.set(salaryBalanceCent);
     }
 
     @Override

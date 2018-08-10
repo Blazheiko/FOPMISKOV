@@ -159,12 +159,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Ставка" GridPane.rowIndex="8">
+            <Label text="Ставка грн." GridPane.rowIndex="8">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="Залишок зарплати" GridPane.rowIndex="9">
+            <Label text="Залишок зарплати грн." GridPane.rowIndex="9">
                <font>
                   <Font size="16.0" />
                </font>
@@ -185,22 +185,6 @@
                </font>
             </Label>
             <TextField fx:id="positionField" prefHeight="39.0" prefWidth="988.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="tariffField" prefHeight="39.0" prefWidth="988.0" promptText="грн /час  ціле число" GridPane.columnIndex="1" GridPane.rowIndex="8">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </TextField>
-            <TextField fx:id="balanceField" prefHeight="39.0" prefWidth="988.0" promptText="грн ціле число" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <font>
                   <Font size="18.0" />
                </font>
@@ -232,6 +216,50 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </TextField>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <children>
+                  <TextField prefHeight="59.0" prefWidth="149.0" promptText="грн">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="копійок">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField prefHeight="51.0" prefWidth="149.0" promptText="копійок">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <children>
+                  <TextField prefHeight="49.0" prefWidth="149.0" promptText="грн">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Label text="копійок">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField prefHeight="49.0" prefWidth="149.0" promptText="копійок">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
          </children>
       </GridPane>
       <HBox layoutX="379.0" layoutY="361.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
