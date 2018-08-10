@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="base.view.PersonOverviewController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="company.view.PersonOverviewController">
    <children>
       <SplitPane dividerPositions="0.3297161936560935" layoutX="200.0" layoutY="64.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -129,11 +129,6 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tariffLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
                         <Label fx:id="dateOfDismissal" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13">
                            <font>
                               <Font size="18.0" />
@@ -179,11 +174,78 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="salaryBalanceLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <children>
+                              <Label fx:id="tariffLabel" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="грн.">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="tariffCentLabel" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="копійок">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                           <children>
+                              <Label fx:id="salaryBalanceLabel" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="грн.">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="salaryBalanceCentLabel" text="Label">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="копійок">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </GridPane>
                   <HBox layoutX="183.0" layoutY="259.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">

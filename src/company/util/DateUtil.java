@@ -1,4 +1,4 @@
-package base.util;
+package company.util;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -16,7 +16,6 @@ public class DateUtil {
     /** Форматировщик даты. */
     private static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern(DATE_PATTERN);
-
 
     public static String format(LocalDate date) {
         if (date == null) {

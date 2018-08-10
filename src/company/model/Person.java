@@ -1,4 +1,4 @@
-package base.model;
+package company.model;
 
 
 import javafx.beans.property.*;
@@ -260,8 +260,8 @@ public class Person {
                 "  #" + city.get() +"^"+"\n"+
                 "  #" + phone.get() +"^"+"\n"+
                 "  #" + position.get() +"^"+"\n"+
-                "  #" + tariff.get() +"^"+"\n"+
-                "  #" + salaryBalance.get() +"^"+"\n"+
+                "  #" + tariff.get() +"^"+tariffCent.get() +"^"+"\n"+
+                "  #" + salaryBalance.get() +"^"+salaryBalanceCent.get() +"^"+"\n"+
                 "  #" + note.get() +"^"+"\n"+
                 "  #" ;
     }

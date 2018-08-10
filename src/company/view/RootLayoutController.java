@@ -1,8 +1,8 @@
-package base.view;
+package company.view;
 
 
 
-import base.MainApp;
+import company.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;

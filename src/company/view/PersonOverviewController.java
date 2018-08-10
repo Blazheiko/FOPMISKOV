@@ -1,8 +1,8 @@
-package base.view;
+package company.view;
 
-import base.MainApp;
-import base.model.Person;
-import base.util.DateUtil;
+import company.MainApp;
+import company.model.Person;
+import company.util.DateUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -59,6 +59,14 @@ public class PersonOverviewController {
 
     @FXML
     private Label positionLabel;
+
+
+    @FXML
+    private Label tariffCentLabel;
+
+    @FXML
+    private Label salaryBalanceCentLabel;
+
 
 
 
@@ -127,7 +135,7 @@ public class PersonOverviewController {
      * Заполняет все текстовые поля, отображая подробности об адресате.
      * Если указанный адресат = null, то все текстовые поля очищаются.
      *
-     * @param person — адресат типа Person или null
+     * — адресат типа Person или null
      */
     private void showPersonDetails(Person person) {
         if (person != null) {
@@ -141,7 +149,9 @@ public class PersonOverviewController {
             phoneLabel.setText(person.getPhone());
             positionLabel.setText(person.getPosition());
             tariffLabel.setText(""+person.getTariff());
+            tariffCentLabel.setText(""+person.getTariffCent());
             salaryBalanceLabel.setText(""+person.getSalaryBalance());
+            salaryBalanceCentLabel.setText(""+person.getSalaryBalanceCent());
             noteLabel.setText(person.getNote());
             birthdayLabel.setText(DateUtil.format(person.getBirthday()));
             dateOfRecruitmentLabel.setText(DateUtil.format(person.getDateOfRecruitment()));
@@ -159,7 +169,9 @@ public class PersonOverviewController {
             phoneLabel.setText("");
             positionLabel.setText("");
             tariffLabel.setText("");
+            tariffCentLabel.setText("");
             salaryBalanceLabel.setText("");
+            salaryBalanceCentLabel.setText("");
             noteLabel.setText("");
             birthdayLabel.setText("");
             dateOfRecruitmentLabel.setText("");

@@ -1,7 +1,7 @@
-package base.view;
+package company.view;
 
-import base.model.Person;
-import base.util.DateUtil;
+import company.model.Person;
+import company.util.DateUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 /**
  * Окно для изменения информации об адресате.
  *
- * @author Marco Jakob
  */
 public class PersonEditDialogController {
 
@@ -66,6 +65,12 @@ public class PersonEditDialogController {
 
     @FXML
     private TextField balanceField;
+
+    @FXML
+    private TextField tariffCentFeeid;
+
+    @FXML
+    private TextField balanceCentField;
 
 
 
@@ -127,8 +132,10 @@ public class PersonEditDialogController {
             person.setCity(cityField.getText());
             person.setPhone(phoneField.getText());
             person.setPosition(positionField.getText());
-            person.setTariff(Double.parseDouble(tariffField.getText()));
-            person.setSalaryBalance(Double.parseDouble(balanceField.getText()));
+            person.setTariff(Integer.parseInt(tariffField.getText()));
+            person.setTariffCent(Integer.parseInt(tariffCentFeeid.getText()));
+            person.setSalaryBalance(Integer.parseInt(balanceField.getText()));
+            person.setSalaryBalanceCent(Integer.parseInt(balanceCentField.getText()));
             person.setNote(noteField.getText());
             person.setBirthday(DateUtil.parse(birthdayField.getText()));
             person.setDateOfRecruitment(DateUtil.parse(dateOfRecruitmentField.getText()));
