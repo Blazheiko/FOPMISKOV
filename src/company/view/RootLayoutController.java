@@ -2,7 +2,7 @@ package company.view;
 
 
 
-import company.MainApp;
+import company.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -21,15 +21,15 @@ import java.io.File;
 public class RootLayoutController {
 
     // Ссылка на главное приложение
-    private MainApp mainApp;
+    private Main main;
 
     /**
      * Вызывается главным приложением, чтобы оставить ссылку на самого себя.
      *
-     * @param mainApp
+     * @param main
      */
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
+    public void setMain(Main main) {
+        this.main = main;
     }
 
     /**
@@ -37,8 +37,8 @@ public class RootLayoutController {
      */
     @FXML
     private void handleNew() {
-        mainApp.getPersonData().clear();
-        mainApp.setPersonFilePath(null);
+        main.getPersonData().clear();
+        main.setPersonFilePath(null);
     }
 
     /**
@@ -55,10 +55,10 @@ public class RootLayoutController {
         fileChooser.getExtensionFilters().add(extFilter);
 
         // Показываем диалог загрузки файла
-        File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+        File file = fileChooser.showOpenDialog(main.getPrimaryStage());
 
         if (file != null) {
-            mainApp.loadPersonDataFromFile(file);
+            main.loadPersonDataFromFile(file);
         }
     }
 
@@ -68,9 +68,9 @@ public class RootLayoutController {
      */
     @FXML
     private void handleSave() {
-        File personFile = mainApp.getPersonFilePath();
+        File personFile = main.getPersonFilePath();
         if (personFile != null) {
-            mainApp.savePersonDataToFile(personFile);
+            main.savePersonDataToFile(personFile);
         } else {
             handleSaveAs();
         }
@@ -90,14 +90,14 @@ public class RootLayoutController {
         fileChooser.getExtensionFilters().add(extFilter);
 
         // Показываем диалог сохранения файла
-        File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+        File file = fileChooser.showSaveDialog(main.getPrimaryStage());
 
         if (file != null) {
             // Убедитесь, что он имеет правильное расширение
             if (!file.getPath().endsWith(".txt")) {
                 file = new File(file.getPath() + ".txt");
             }
-            mainApp.savePersonDataToFile(file);
+            main.savePersonDataToFile(file);
         }
     }
 

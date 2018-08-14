@@ -1,6 +1,6 @@
 package company.view;
 
-import company.MainApp;
+import company.Main;
 import company.model.Person;
 import company.util.DateUtil;
 import javafx.fxml.FXML;
@@ -71,7 +71,7 @@ public class PersonOverviewController {
 
 
     // Ссылка на главное приложение.
-    private MainApp mainApp;
+    private Main main;
 
 
     @FXML
@@ -102,7 +102,7 @@ public class PersonOverviewController {
         } else {
             // Ничего не выбрано.
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.initOwner(mainApp.getPrimaryStage());
+            alert.initOwner(main.getPrimaryStage());
             alert.setTitle("Відсутність вибору");
             alert.setHeaderText("Не вибрано персону");
             alert.setContentText("Будь ласка виберіть персону з таблиці.");
@@ -123,13 +123,13 @@ public class PersonOverviewController {
     /**
      * Вызывается главным приложением, которое даёт на себя ссылку.
      *
-     * @param mainApp
+     * @param main
      */
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
+    public void setMain(Main main) {
+        this.main = main;
 
         // Добавление в таблицу данных из наблюдаемого списка
-        personTable.setItems(mainApp.getPersonData());
+        personTable.setItems(main.getPersonData());
     }
     /**
      * Заполняет все текстовые поля, отображая подробности об адресате.
@@ -185,9 +185,9 @@ public class PersonOverviewController {
     @FXML
     private void handleNewPerson() {
         Person tempPerson = new Person();
-        boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+        boolean okClicked = main.showPersonEditDialog(tempPerson);
         if (okClicked) {
-            mainApp.getPersonData().add(tempPerson);
+            main.getPersonData().add(tempPerson);
         }
     }
 
@@ -199,7 +199,7 @@ public class PersonOverviewController {
     private void handleEditPerson() {
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
-            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+            boolean okClicked = main.showPersonEditDialog(selectedPerson);
             if (okClicked) {
                 showPersonDetails(selectedPerson);
             }
@@ -207,7 +207,7 @@ public class PersonOverviewController {
         } else {
             // Ничего не выбрано.
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.initOwner(mainApp.getPrimaryStage());
+            alert.initOwner(main.getPrimaryStage());
             alert.setTitle("Відсутність вибору");
             alert.setHeaderText("Персона не вибрана");
             alert.setContentText("Будь ласка виберіть персону з таблиці..");
