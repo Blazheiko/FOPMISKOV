@@ -110,7 +110,7 @@ public class Main extends Application {
 
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("??????????? ?????");
+            dialogStage.setTitle("Введення даних ");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page,1200,800);
@@ -166,7 +166,7 @@ public class Main extends Application {
             char[] CB = new char[(int) fileLoad.length()];
             Reader reader = new InputStreamReader(new FileInputStream(fileLoad), "Cp1251");
             reader.read(CB);
-            StringToPersonData(CB) ;
+            //StringToPersonData(CB) ;
 
 
         } catch (IOException ex) {
@@ -203,7 +203,7 @@ public class Main extends Application {
                     case '^': {
                         switch (index) {
                             case 1: {
-                                personTemp.setInn(strValue);
+                                personTemp.setInn(Integer.valueOf(strValue));
                                 break;
                             }
                             case 2: {

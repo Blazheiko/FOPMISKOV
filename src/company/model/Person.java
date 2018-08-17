@@ -12,7 +12,7 @@ import java.time.LocalDate;
  *
  */
 public class Person {
-    private final StringProperty inn;
+    private final IntegerProperty inn;
     private final StringProperty firstName;
     private final StringProperty lastName;
     private final StringProperty patron;
@@ -30,11 +30,11 @@ public class Person {
     private final ObjectProperty<LocalDate> dateOfRecruitment;
     private final ObjectProperty<LocalDate> dateOfDismissal ;
 
-    public Person(String inn, String firstName, String lastName, String patron,
+    public Person(Integer inn, String firstName, String lastName, String patron,
                   String street, String city, String phone, String position,
                   Integer tariff, Integer salaryBalance, Integer tariffCent, Integer salaryBalanceCent, String note,
                   LocalDate birthday, LocalDate dateOfRecruitment, LocalDate dateOfDismissal) {
-        this.inn = new SimpleStringProperty (inn);
+        this.inn = new SimpleIntegerProperty (inn);
         this.firstName = new SimpleStringProperty (firstName);
         this.lastName = new SimpleStringProperty (lastName);
         this.patron = new SimpleStringProperty (patron);
@@ -53,19 +53,19 @@ public class Person {
     }
 
     public Person() {
-        this (null,null,null,null,null,null,null,null,0,
+        this (0,null,null,null,null,null,null,null,0,
                 0, 0, 0, null,null,null,null);
     }
 
-    public String getInn() {
+    public Integer getInn() {
         return inn.get();
     }
 
-    public StringProperty innProperty() {
+    public IntegerProperty innProperty() {
         return inn;
     }
 
-    public void setInn(String inn) {
+    public void setInn(Integer inn) {
         this.inn.set(inn);
     }
 

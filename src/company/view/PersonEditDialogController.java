@@ -85,27 +85,33 @@ public class PersonEditDialogController {
 
     /**
      * Устанавливает сцену для этого окна.
-     *
-     * @param dialogStage
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
     /**
-     * Задаёт адресата, информацию о котором будем менять.
-     *
-     * @param person
+     * Задаёт person, информацию о котором будем менять.
      */
     public void setPerson(Person person) {
         this.person = person;
 
+        innField.setText("" + person.getInn());
         firstNameField.setText(person.getFirstName());
         lastNameField.setText(person.getLastName());
+        patronField.setText(person.getPatron());
         streetField.setText(person.getStreet());
-        phoneField.setText(person.getPhone());
         cityField.setText(person.getCity());
+        phoneField.setText(person.getPhone());
+        positionField.setText(person.getPosition());
+        tariffField.setText(""+(int)person.getTariff());
+        tariffCentFeeid.setText(""+person.getTariffCent());
+//        salaryBalanceLabel.setText(""+person.getSalaryBalance());
+//        salaryBalanceCentFe.setText(""+person.getSalaryBalanceCent());
+        noteField.setText(person.getNote());
         birthdayField.setText(DateUtil.format(person.getBirthday()));
+        dateOfRecruitmentField.setText(DateUtil.format(person.getDateOfRecruitment()));
+        dateOfDismissalField.setText(DateUtil.format(person.getDateOfDismissal()));
         birthdayField.setPromptText("dd.mm.yyyy");
     }
 
@@ -124,7 +130,7 @@ public class PersonEditDialogController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setInn (innField.getText());
+            person.setInn (Integer.parseInt(innField.getText()));
             person.setFirstName(firstNameField.getText());
             person.setLastName(lastNameField.getText());
             person.setPatron(patronField.getText());
@@ -138,8 +144,10 @@ public class PersonEditDialogController {
             person.setSalaryBalanceCent(Integer.parseInt(balanceCentField.getText()));
             person.setNote(noteField.getText());
             person.setBirthday(DateUtil.parse(birthdayField.getText()));
-            person.setDateOfRecruitment(DateUtil.parse(dateOfRecruitmentField.getText()));
-            person.setDateOfDismissal(DateUtil.parse(dateOfDismissalField.getText()));
+            if (dateOfRecruitmentField.getText()!=null && dateOfRecruitmentField.getText().length()!=0)
+                 person.setDateOfRecruitment(DateUtil.parse(dateOfRecruitmentField.getText()));
+            if (dateOfDismissalField.getText()!=null && dateOfDismissalField.getText().length()!=0)
+                 person.setDateOfDismissal(DateUtil.parse(dateOfDismissalField.getText()));
 
             okClicked = true;
             dialogStage.close();
@@ -163,6 +171,12 @@ public class PersonEditDialogController {
         String errorMessage = "";
         if (innField.getText().trim() == null || innField.getText().trim().length() == 0) {
             errorMessage += "Не введено ІНН!\n";
+        }
+        if (innField.getText().trim().length() != 10) {
+            errorMessage += "Кількість символів в ІНН не 10 символів!\n";
+        }
+        if (tariffCentFeeid.getText().trim().length() > 2 || balanceCentField.getText().trim().length() > 2) {
+            errorMessage += "Забагато копійок!\n";
         }
         if (firstNameField.getText().trim() == null || firstNameField.getText().trim().length() == 0) {
             errorMessage += "Не введено прізвище!\n";
@@ -191,6 +205,14 @@ public class PersonEditDialogController {
            if (!DateUtil.validDate(birthdayField.getText())) {
                 errorMessage += "Не вірний формат дня народження, має бути : дд.мм.рррр!\n";
             }
+        }
+        if (dateOfRecruitmentField.getText()!=null && dateOfRecruitmentField.getText().length()!=0
+                && !DateUtil.validDate(dateOfRecruitmentField.getText())) {
+            errorMessage += "Не вірний формат дня прийому на роботу, має бути : дд.мм.рррр!\n";
+        }
+        if (dateOfDismissalField.getText()!=null && dateOfDismissalField.getText().length()!=0
+                && !DateUtil.validDate(dateOfDismissalField.getText())) {
+            errorMessage += "Не вірний формат дня звільнення, має бути : дд.мм.рррр!\n";
         }
 
         if (errorMessage.length() == 0) {

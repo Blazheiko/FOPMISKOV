@@ -22,7 +22,7 @@ public class PersonOverviewController {
     private TableColumn<Person, String> patronColumn;
 
     @FXML
-    private TableColumn<Person, String> innColumn;
+    private TableColumn<Person, Integer> innColumn;
 
     @FXML
     private Label firstNameLabel;
@@ -79,7 +79,7 @@ public class PersonOverviewController {
 
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        innColumn.setCellValueFactory(cellData -> cellData.getValue().innProperty());
+        innColumn.setCellValueFactory(cellData -> cellData.getValue().innProperty().asObject());
         patronColumn.setCellValueFactory(cellData -> cellData.getValue().patronProperty());
         //birhtdayColumn.setCellValueFactory(cellData -> cellData.getValue().birthdayProperty());
 
@@ -140,7 +140,7 @@ public class PersonOverviewController {
     private void showPersonDetails(Person person) {
         if (person != null) {
             // Заполняем метки информацией из объекта person.
-            innLabel.setText(person.getInn());
+            innLabel.setText("" + (int)person.getInn());
             firstNameLabel.setText(person.getFirstName());
             lastNameLabel.setText(person.getLastName());
             patronLabel.setText(person.getPatron());
@@ -148,10 +148,10 @@ public class PersonOverviewController {
             cityLabel.setText(person.getCity());
             phoneLabel.setText(person.getPhone());
             positionLabel.setText(person.getPosition());
-            tariffLabel.setText(""+person.getTariff());
-            tariffCentLabel.setText(""+person.getTariffCent());
-            salaryBalanceLabel.setText(""+person.getSalaryBalance());
-            salaryBalanceCentLabel.setText(""+person.getSalaryBalanceCent());
+            tariffLabel.setText(""+(int)person.getTariff());
+            tariffCentLabel.setText(""+(int)person.getTariffCent());
+            salaryBalanceLabel.setText(""+(int)person.getSalaryBalance());
+            salaryBalanceCentLabel.setText(""+(int)person.getSalaryBalanceCent());
             noteLabel.setText(person.getNote());
             birthdayLabel.setText(DateUtil.format(person.getBirthday()));
             dateOfRecruitmentLabel.setText(DateUtil.format(person.getDateOfRecruitment()));
